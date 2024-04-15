@@ -1,0 +1,90 @@
+{
+  "name": "charging-stations-webapp",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/charging-stations-webapp/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/charging-stations-webapp",
+        "index": "apps/charging-stations-webapp/src/index.html",
+        "main": "apps/charging-stations-webapp/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/charging-stations-webapp/tsconfig.app.json",
+        "inlineStyleLanguage": "less",
+        "assets": [
+          "apps/charging-stations-webapp/src/favicon.ico",
+          "apps/charging-stations-webapp/src/assets"
+        ],
+        "styles": ["apps/charging-stations-webapp/src/styles.less"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "charging-stations-webapp:build:production"
+        },
+        "development": {
+          "buildTarget": "charging-stations-webapp:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "charging-stations-webapp:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/charging-stations-webapp/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "charging-stations-webapp:build",
+        "port": 4200,
+        "spa": true
+      }
+    }
+  }
+}
