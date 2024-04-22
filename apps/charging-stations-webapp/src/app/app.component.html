@@ -1,1 +1,27 @@
-<app-nx-welcome></app-nx-welcome> <router-outlet></router-outlet>
+<app-nx-welcome></app-nx-welcome>
+
+<div id="Inputs">
+  <form>
+ <a>
+   Input your Current Postalcode:
+   <input type="number" name="Location" placeholder="PLZ">
+ </a>
+   <br/>
+  <br>
+  <label for="chargerType">Select the Charger type of your Vehicle: </label>
+  <select name="chargerType" id="chargerType"  size="5">
+    <option value="none">None</option>
+    <option value="tesla (High Power)">Tesla Connector (high power wall)</option>
+    <option value="IEC 62196-2 type 2 combo (Mennekes)">IEC 62196-2 type 2 combo (Mennekes)</option>
+    <option value="Domestic plug/socket type H (SI 32)">Domestic plug/socket type H (SI 32)</option>
+  </select>
+  <br/>
+  <br/>
+  <button>Submit</button>
+  </form>
+</div>
+<div id="map">
+
+</div>
+
+<router-outlet></router-outlet>
