@@ -14,10 +14,12 @@ import { FormsModule } from '@angular/forms';
 export class AppComponent {
   title = 'charging-stations-webapp';
 
+
+
   options =[
     {name : "tesla (High Power)", value : "High Power"},
     {name : "IEC 62196-2 type 2 combo (Mennekes)", value: "IEC 62196-2 type 2 combo (Mennekes)" }
 
-    ];
+  ];
 
 }
