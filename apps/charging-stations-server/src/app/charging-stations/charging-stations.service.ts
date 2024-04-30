@@ -24,13 +24,14 @@ export class ChargingStationsService {
     const apikey = this.tomTomAPIKey;
 
     const url =
-      'https://api.tomtom.com/search/2/poiSearch/Charge_Spot.json?key=' +
+      'https://api.tomtom.com/search/2/categorySearch/.json?key=' +
       apikey +
       '&lat=' +
       lat +
       '&lon=' +
       lng +
-      '&radius=25000';
+      '&radius=25000' +
+      '&categorySet=7309';
 
     return this.httpService.get(url).pipe(map((resp) => resp.data));
   }
