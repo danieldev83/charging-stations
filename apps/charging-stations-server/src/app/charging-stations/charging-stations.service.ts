@@ -9,8 +9,8 @@ import { map, Observable } from 'rxjs';
 @Injectable()
 export class ChargingStationsService {
   // API-Keys
-  tomTomAPIKey = '';
-  openWeatherMapAPIKey = '';
+  tomTomAPIKey = 'CjrdFKNpAc9VlCTe4Fdapl7HbogHZlyD';
+  openWeatherMapAPIKey = '22204a30a6fbcbd4f137676bd1bd6a21';
 
   constructor(private httpService: HttpService) {}
 
